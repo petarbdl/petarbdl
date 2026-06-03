@@ -245,10 +245,13 @@ section {
 }
 
 .project-screenshot img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    z-index: 2;
 }
 
 .project-screenshot .placeholder {
@@ -541,6 +544,7 @@ footer {
         </div>
 
         <div class="project-screenshot">
+            <img src="images/xylem/measurement-ui.png" alt="Xylem multi-sensor measurement dashboard" onerror="this.style.display='none'">
             <div class="placeholder">
                 <span>Screenshot placeholder</span>
                 Xylem industrial measurement UI
@@ -585,6 +589,7 @@ footer {
         </div>
 
         <div class="project-screenshot">
+            <img src="images/relimetrics/inspection.png" alt="Relimetrics AI-assisted inspection interface" onerror="this.style.display='none'">
             <div class="placeholder">
                 <span>Screenshot placeholder</span>
                 Relimetrics inspection UI
@@ -624,6 +629,7 @@ footer {
         </div>
 
         <div class="project-screenshot">
+            <img src="images/cms-aero/cabin-control.png" alt="CMS AERO aircraft cabin control HMI" onerror="this.style.display='none'">
             <div class="placeholder">
                 <span>Screenshot placeholder</span>
                 Cabin control HMI mockup
@@ -660,13 +666,6 @@ footer {
             <div class="project-meta">Germany · VoIP Desktop</div>
             <h3 class="project-title">GlobalIPTel — Cross-Platform VoIP Client</h3>
             <p class="project-role">Qt Developer · Desktop · Real-Time Audio</p>
-        </div>
-
-        <div class="project-screenshot">
-            <div class="placeholder">
-                <span>Screenshot placeholder</span>
-                VoIP client UI
-            </div>
         </div>
 
         <p>
@@ -751,8 +750,7 @@ footer {
 
         <ul class="contact-list">
             <li><span class="key">Email</span><a href="mailto:petarbdl@gmail.com">petarbdl@gmail.com</a></li>
-            <li><span class="key">LinkedIn</span><a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></li>
-            <li><span class="key">GitHub</span><a href="#" target="_blank" rel="noopener">github.com/your-handle</a></li>
+            <li><span class="key">LinkedIn</span><a href="#" target="_blank" rel="noopener">https://www.linkedin.com/in/petar-badaloski-94072b183/</a></li>
             <li><span class="key">Location</span>Skopje, North Macedonia · UTC+1</li>
         </ul>
     </div>
