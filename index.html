@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Petar Badaloski — Senior Qt/C++ Engineer</title>
+<meta name="description" content="Senior Qt/C++ engineer building production embedded and desktop applications. 6+ years working with clients in Germany and the USA." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #F7F3EC;
+    --bg-card: #FFFFFF;
+    --ink: #1A1814;
+    --ink-soft: #4A453E;
+    --ink-faint: #8A8478;
+    --line: #E2DCD0;
+    --accent: #B84A1F;
+    --accent-soft: #F0DDD0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+}
+
+/* ============= HEADER ============= */
+
+header {
+    margin-bottom: 96px;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--ink-faint);
+}
+
+h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144;
+}
+
+h1 .accent {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.tagline {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-weight: 400;
+    max-width: 580px;
+    font-variation-settings: "opsz" 24;
+}
+
+.tagline em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.meta-bar {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+.meta-bar a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.meta-bar a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.meta-bar .meta-label {
+    color: var(--ink-faint);
+    margin-right: 8px;
+}
+
+/* ============= SECTIONS ============= */
+
+section {
+    margin-bottom: 96px;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+}
+
+.section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* ============= ABOUT ============= */
+
+.about p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--ink);
+}
+
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+.about strong {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* ============= PROJECTS ============= */
+
+.project {
+    margin-bottom: 72px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid var(--line);
+}
+
+.project:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.project-header {
+    margin-bottom: 28px;
+}
+
+.project-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.project-title {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.project-role {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    color: var(--ink-faint);
+    font-weight: 400;
+}
+
+.project-screenshot {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-screenshot .placeholder {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.project-screenshot .placeholder span {
+    display: block;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-family: 'Fraunces', serif;
+    text-transform: none;
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+.project-screenshot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.project p {
+    margin-bottom: 16px;
+    color: var(--ink-soft);
+}
+
+.project p:last-child {
+    margin-bottom: 0;
+}
+
+.project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 24px;
+}
+
+.stack-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+}
+
+/* ============= STACK TABLE ============= */
+
+.stack-table {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.stack-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    gap: 24px;
+}
+
+.stack-row:last-child {
+    border-bottom: none;
+}
+
+.stack-label {
+    color: var(--ink-faint);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+
+.stack-value {
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+/* ============= CONTACT ============= */
+
+.contact-block {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 48px 40px;
+    margin-top: 32px;
+}
+
+.contact-block .pitch {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    color: var(--ink);
+    font-weight: 400;
+    font-variation-settings: "opsz" 24;
+}
+
+.contact-block .pitch em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.contact-list li {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+}
+
+.contact-list .key {
+    color: var(--ink-faint);
+    min-width: 80px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.contact-list a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-list a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ============= FOOTER ============= */
+
+footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    letter-spacing: 0.04em;
+}
+
+/* ============= ANIMATIONS ============= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============= RESPONSIVE ============= */
+
+@media (max-width: 600px) {
+    .wrap {
+        padding: 56px 24px 80px;
+    }
+
+    header {
+        margin-bottom: 64px;
+    }
+
+    section {
+        margin-bottom: 72px;
+    }
+
+    .meta-bar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stack-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .contact-block {
+        padding: 32px 24px;
+    }
+
+    .project {
+        margin-bottom: 56px;
+        padding-bottom: 56px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+    <div class="eyebrow">Portfolio · Selected work · 2018 — Present</div>
+    <h1>Petar Badaloski<br><span class="accent">Senior Qt/C++ Engineer.</span></h1>
+    <p class="tagline">
+        Six years building <em>production Qt applications</em> for German and US clients —
+        embedded HMI on custom Yocto hardware, multi-process desktop architectures,
+        cross-platform commercial software.
+    </p>
+
+    <div class="meta-bar">
+        <span><span class="meta-label">Based</span> Skopje, North Macedonia</span>
+        <span><span class="meta-label">Status</span> Open to roles</span>
+        <span><a href="mailto:petarbdl@gmail.com">petarbdl@gmail.com</a></span>
+    </div>
+</header>
+
+
+<!-- ============================================================ -->
+<!-- ABOUT                                                        -->
+<!-- ============================================================ -->
+
+<section class="about">
+    <div class="section-head">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About</h2>
+    </div>
+
+    <p>
+        I'm a Qt and C++ developer with <strong>6+ years of remote experience</strong> working
+        with engineering teams in Germany and the United States. My focus is the harder side of
+        Qt work — <strong>custom embedded Linux platforms</strong>, multi-process architectures
+        with <strong>gRPC and protobuf</strong>, and production code that has to run reliably
+        on real hardware for years.
+    </p>
+
+    <p>
+        I've shipped Qt/QML applications across industrial measurement, aerospace HMI, AI-assisted
+        quality inspection, and VoIP telephony. I work end-to-end: from QML frontend through C++
+        backend services to PostgreSQL persistence and Yocto image builds.
+    </p>
+
+    <p>
+        Currently available for <strong>full-time, contract, or part-time</strong> engagements.
+    </p>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SELECTED WORK                                                -->
+<!-- ============================================================ -->
+
+<section>
+    <div class="section-head">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Selected Work</h2>
+    </div>
+
+
+    <!-- PROJECT 1: XYLEM -->
+    <article class="project">
+        <div class="project-header">
+            <div class="project-meta">2023 — Present · Germany</div>
+            <h3 class="project-title">Xylem SI Analytics — Multi-Sensor Measurement Platform</h3>
+            <p class="project-role">Senior Qt/C++ Engineer · Embedded Linux · Multi-Process Architecture</p>
+        </div>
+
+        <div class="project-screenshot">
+            <div class="placeholder">
+                <span>Screenshot placeholder</span>
+                Xylem industrial measurement UI
+            </div>
+        </div>
+
+        <p>
+            Co-designed and shipped a Qt/QML industrial measurement platform running on
+            custom Yocto Linux hardware, supporting up to four simultaneous sensors
+            (pH, dissolved oxygen, conductivity, turbidity) with live charting,
+            calibration workflows, and regulated audit logging.
+        </p>
+
+        <p>
+            Architected the gRPC-based IPC between the QML frontend and C++ measurement
+            backend, replacing brittle direct coupling and enabling independent deployment.
+            Own the persistence layer (PostgreSQL via QxOrm), PDF report export,
+            user/role management, logging, and NTP synchronization.
+        </p>
+
+        <div class="project-stack">
+            <span class="stack-pill">Qt 6</span>
+            <span class="stack-pill">QML</span>
+            <span class="stack-pill">C++17</span>
+            <span class="stack-pill">gRPC</span>
+            <span class="stack-pill">Protobuf</span>
+            <span class="stack-pill">Yocto Linux</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">QxOrm</span>
+            <span class="stack-pill">ARM Cortex-A</span>
+            <span class="stack-pill">CMake</span>
+        </div>
+    </article>
+
+
+    <!-- PROJECT 2: RELIMETRICS -->
+    <article class="project">
+        <div class="project-header">
+            <div class="project-meta">2022 — 2024 · Germany</div>
+            <h3 class="project-title">Relimetrics — AI-Assisted Quality Inspection</h3>
+            <p class="project-role">Qt/Python Developer · Desktop Application · Computer Vision UI</p>
+        </div>
+
+        <div class="project-screenshot">
+            <div class="placeholder">
+                <span>Screenshot placeholder</span>
+                Relimetrics inspection UI
+            </div>
+        </div>
+
+        <p>
+            Built Qt Widgets and PyQt desktop applications for AI-assisted visual
+            inspection on the factory floor, with operator-facing workflows for
+            calibrating models, reviewing defects, and managing inspection sessions.
+        </p>
+
+        <p>
+            Worked directly with the ML team to integrate inference results into the
+            UI in real time, exposing model confidence and inspection outcomes through
+            interfaces that production operators could actually use under time pressure.
+        </p>
+
+        <div class="project-stack">
+            <span class="stack-pill">Qt 5</span>
+            <span class="stack-pill">Qt Widgets</span>
+            <span class="stack-pill">PyQt</span>
+            <span class="stack-pill">Python</span>
+            <span class="stack-pill">C++</span>
+            <span class="stack-pill">Windows</span>
+            <span class="stack-pill">Computer Vision</span>
+        </div>
+    </article>
+
+
+    <!-- PROJECT 3: CMS AERO -->
+    <article class="project">
+        <div class="project-header">
+            <div class="project-meta">USA · Aerospace HMI</div>
+            <h3 class="project-title">CMS AERO — Aircraft Cabin Control Panels</h3>
+            <p class="project-role">QML Engineer · Aviation HMI · D-Bus & MQTT Integration</p>
+        </div>
+
+        <div class="project-screenshot">
+            <div class="placeholder">
+                <span>Screenshot placeholder</span>
+                Cabin control HMI mockup
+            </div>
+        </div>
+
+        <p>
+            Built QML interfaces for aircraft cabin control panels — lighting,
+            climate, IFE, and crew workflows — designed to meet aviation reliability
+            and readability standards. Integrated with onboard systems via
+            D-Bus, MQTT, and WebSocket IPC.
+        </p>
+
+        <p>
+            Focused on touch-target sizing, glanceable layouts, and graceful
+            degradation when subsystems were offline — the kind of attention to
+            edge cases that distinguishes safety-relevant HMI from generic Qt UIs.
+        </p>
+
+        <div class="project-stack">
+            <span class="stack-pill">Qt</span>
+            <span class="stack-pill">QML</span>
+            <span class="stack-pill">D-Bus</span>
+            <span class="stack-pill">MQTT</span>
+            <span class="stack-pill">WebSocket</span>
+            <span class="stack-pill">Embedded Linux</span>
+        </div>
+    </article>
+
+
+    <!-- PROJECT 4: GLOBALIPTEL -->
+    <article class="project">
+        <div class="project-header">
+            <div class="project-meta">Germany · VoIP Desktop</div>
+            <h3 class="project-title">GlobalIPTel — Cross-Platform VoIP Client</h3>
+            <p class="project-role">Qt Developer · Desktop · Real-Time Audio</p>
+        </div>
+
+        <div class="project-screenshot">
+            <div class="placeholder">
+                <span>Screenshot placeholder</span>
+                VoIP client UI
+            </div>
+        </div>
+
+        <p>
+            Cross-platform Qt/QML desktop VoIP client running on Windows, macOS,
+            and Linux. Worked on UI, signalling, and call-state management for
+            a commercial product used by business customers.
+        </p>
+
+        <div class="project-stack">
+            <span class="stack-pill">Qt</span>
+            <span class="stack-pill">QML</span>
+            <span class="stack-pill">C++</span>
+            <span class="stack-pill">SIP/VoIP</span>
+            <span class="stack-pill">Windows</span>
+            <span class="stack-pill">macOS</span>
+            <span class="stack-pill">Linux</span>
+        </div>
+    </article>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!-- STACK                                                        -->
+<!-- ============================================================ -->
+
+<section>
+    <div class="section-head">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Technical Stack</h2>
+    </div>
+
+    <div class="stack-table">
+        <div class="stack-row">
+            <div class="stack-label">Core</div>
+            <div class="stack-value">Qt 5 · Qt 6 · QML · Quick Controls · Widgets · C++17 / C++20</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Architecture</div>
+            <div class="stack-value">Multi-process design · gRPC · Protobuf · D-Bus · MQTT · WebSocket</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Embedded</div>
+            <div class="stack-value">Yocto Linux · ARM Cortex-A · Raspberry Pi · Custom hardware integration</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Data</div>
+            <div class="stack-value">PostgreSQL · QxOrm · SQLite</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Platforms</div>
+            <div class="stack-value">Linux (Ubuntu / Debian / Yocto) · Windows · macOS</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Tooling</div>
+            <div class="stack-value">CMake · qmake · Git · CI/CD pipelines</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Languages</div>
+            <div class="stack-value">English (C1) · German (A1–A2, learning) · Macedonian (native)</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- CONTACT                                                      -->
+<!-- ============================================================ -->
+
+<section>
+    <div class="section-head">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Get in touch</h2>
+    </div>
+
+    <div class="contact-block">
+        <p class="pitch">
+            Currently <em>open to roles</em> — full-time, contract, or part-time.
+            Remote across the EU and the Balkans; available for relocation
+            within the region.
+        </p>
+
+        <ul class="contact-list">
+            <li><span class="key">Email</span><a href="mailto:petarbdl@gmail.com">petarbdl@gmail.com</a></li>
+            <li><span class="key">LinkedIn</span><a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></li>
+            <li><span class="key">GitHub</span><a href="#" target="_blank" rel="noopener">github.com/your-handle</a></li>
+            <li><span class="key">Location</span>Skopje, North Macedonia · UTC+1</li>
+        </ul>
+    </div>
+</section>
+
+
+<footer>
+    <span>© Petar Badaloski</span>
+    <span>Last updated · December 2025</span>
+</footer>
+
+</div>
+
+</body>
+</html>
