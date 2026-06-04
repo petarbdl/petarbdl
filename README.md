@@ -12,9 +12,9 @@ This is the source of my personal portfolio page, hosted via GitHub Pages.
 ├── README.md
 └── images/
     ├── xylem/
-    │   └── measurement-ui.png
+    │   └── all/                  # 23-shot gallery behind the "All screenshots" toggle
     ├── relimetrics/
-    │   └── inspection.png
+    │   └── all/                  # 36-shot gallery behind the "All screenshots" toggle
     └── cms-aero/
         └── cabin-control.png
 ```
@@ -25,8 +25,8 @@ The `index.html` looks for these specific files. Either name your screenshots to
 
 | Project       | Path                                       |
 |---------------|--------------------------------------------|
-| Xylem         | `images/xylem/measurement-ui.png`          |
-| Relimetrics   | `images/relimetrics/inspection.png`        |
+| Xylem         | `images/xylem/all/` (23-image gallery behind the "All screenshots" toggle) |
+| Relimetrics   | `images/relimetrics/all/` (36-image gallery behind the "All screenshots" toggle) |
 | CMS AERO      | `images/cms-aero/cabin-control.png`        |
 
 ## Recommended image specs

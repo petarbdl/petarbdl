@@ -316,6 +316,86 @@ section {
     letter-spacing: 0.02em;
 }
 
+/* ============= SCREENSHOT ARCHIVE ============= */
+
+.screenshot-archive {
+    margin-top: 16px;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+}
+
+.screenshot-archive > summary {
+    list-style: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.screenshot-archive > summary::-webkit-details-marker { display: none; }
+
+.screenshot-archive > summary:hover { color: var(--accent); }
+
+.screenshot-archive .toggle-caret {
+    transition: transform 0.25s ease;
+    font-size: 10px;
+}
+
+.screenshot-archive[open] > summary {
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+}
+
+.screenshot-archive[open] .toggle-caret { transform: rotate(180deg); }
+
+.shot-gallery { padding: 24px 20px 28px; }
+
+.shot-group + .shot-group { margin-top: 28px; }
+
+.shot-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+}
+
+.shot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+}
+
+.shot-grid a {
+    display: block;
+    border: 1px solid var(--line);
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg);
+    transition: border-color 0.2s;
+}
+
+.shot-grid a:hover { border-color: var(--accent); }
+
+.shot-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 /* ============= STACK TABLE ============= */
 
 .stack-table {
@@ -478,7 +558,7 @@ footer {
 <div class="wrap">
 
 <header>
-    <div class="eyebrow">Portfolio · Selected work · 2018 — Present</div>
+    <div class="eyebrow">Portfolio · Selected work · 2019 — Present</div>
     <h1>Petar Badaloski<br><span class="accent">Senior Qt/C++ Engineer.</span></h1>
     <p class="tagline">
         Six years building <em>production Qt applications</em> for German and US clients —
@@ -514,7 +594,7 @@ footer {
 
     <p>
         I've shipped Qt/QML applications across industrial measurement, aerospace HMI, AI-assisted
-        quality inspection, and VoIP telephony. I work end-to-end: from QML frontend through C++
+        quality inspection, and embedded device panels. I work end-to-end: from QML frontend through C++
         backend services to PostgreSQL persistence and Yocto image builds.
     </p>
 
@@ -525,12 +605,55 @@ footer {
 
 
 <!-- ============================================================ -->
-<!-- SELECTED WORK                                                -->
+<!-- STACK                                                        -->
 <!-- ============================================================ -->
 
 <section>
     <div class="section-head">
         <span class="section-number">02</span>
+        <h2 class="section-title">Technical Stack</h2>
+    </div>
+
+    <div class="stack-table">
+        <div class="stack-row">
+            <div class="stack-label">Core</div>
+            <div class="stack-value">Qt 5 · Qt 6 · QML · Quick Controls · Widgets · LVGL · C++17 / C++20 · C</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Architecture</div>
+            <div class="stack-value">Multi-process design · gRPC · Protobuf · D-Bus · MQTT · WebSocket</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Embedded</div>
+            <div class="stack-value">Yocto Linux · RTOS · ARM Cortex-A · Raspberry Pi · Custom hardware integration</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Data</div>
+            <div class="stack-value">PostgreSQL · QxOrm · SQLite</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Platforms</div>
+            <div class="stack-value">Linux (Ubuntu / Debian / Yocto) · Windows</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Tooling</div>
+            <div class="stack-value">CMake · qmake · Git · CI/CD pipelines</div>
+        </div>
+        <div class="stack-row">
+            <div class="stack-label">Languages</div>
+            <div class="stack-value">English (C1) · German (A1, learning) · Macedonian (native)</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SELECTED WORK                                                -->
+<!-- ============================================================ -->
+
+<section>
+    <div class="section-head">
+        <span class="section-number">03</span>
         <h2 class="section-title">Selected Work</h2>
     </div>
 
@@ -543,19 +666,13 @@ footer {
             <p class="project-role">Senior Qt/C++ Engineer · Embedded Linux · Multi-Process Architecture</p>
         </div>
 
-        <div class="project-screenshot">
-            <img src="images/xylem/measurement-ui.png" alt="Xylem multi-sensor measurement dashboard" onerror="this.style.display='none'">
-            <div class="placeholder">
-                <span>Screenshot placeholder</span>
-                Xylem industrial measurement UI
-            </div>
-        </div>
-
         <p>
-            Co-designed and shipped a Qt/QML industrial measurement platform running on
-            custom Yocto Linux hardware, supporting up to four simultaneous sensors
-            (pH, dissolved oxygen, conductivity, turbidity) with live charting,
-            calibration workflows, and regulated audit logging.
+            Co-designed and shipped a Qt/QML industrial measurement platform — a commercial
+            product running in production and actively sold to end customers — on custom
+            Yocto Linux hardware, prototyped early on Raspberry Pi 3. It supports up to four
+            simultaneous sensors (pH, oxygen, conductivity, turbidity, and others) with
+            real-time measurement, calibration workflows, data logging, and regulated audit
+            trails.
         </p>
 
         <p>
@@ -565,18 +682,95 @@ footer {
             user/role management, logging, and NTP synchronization.
         </p>
 
+        <p>
+            I continue to maintain and extend the platform in production while helping build
+            the next generation of related measurement systems with the engineering team in
+            Germany.
+        </p>
+
         <div class="project-stack">
             <span class="stack-pill">Qt 6</span>
             <span class="stack-pill">QML</span>
             <span class="stack-pill">C++17</span>
             <span class="stack-pill">gRPC</span>
             <span class="stack-pill">Protobuf</span>
+            <span class="stack-pill">Multi-process</span>
             <span class="stack-pill">Yocto Linux</span>
             <span class="stack-pill">PostgreSQL</span>
             <span class="stack-pill">QxOrm</span>
             <span class="stack-pill">ARM Cortex-A</span>
+            <span class="stack-pill">Raspberry Pi</span>
             <span class="stack-pill">CMake</span>
         </div>
+
+        <details class="screenshot-archive">
+            <summary>
+                <span>All 23 screenshots — full walkthrough</span>
+                <span class="toggle-caret">▼</span>
+            </summary>
+            <div class="shot-gallery">
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Login &amp; Home</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/LoginPage_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/LoginPage_2.png" alt="Xylem login screen" loading="lazy"></a>
+                        <a href="images/xylem/all/HomePage_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/HomePage_1.png" alt="Xylem home screen with live sensor tiles and shortcuts" loading="lazy"></a>
+                        <a href="images/xylem/all/TopSlider_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/TopSlider_1.png" alt="Xylem system menu — device settings, user management, communication" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Live Measurement</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/MeasurementPage_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/MeasurementPage_1.png" alt="Xylem four-sensor measurement grid" loading="lazy"></a>
+                        <a href="images/xylem/all/MeasurementPage_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/MeasurementPage_2.png" alt="Xylem measurement — auto-range stabilising" loading="lazy"></a>
+                        <a href="images/xylem/all/MeasurementPage_3.png" target="_blank" rel="noopener"><img src="images/xylem/all/MeasurementPage_3.png" alt="Xylem measurement — hold with action bar" loading="lazy"></a>
+                        <a href="images/xylem/all/MeasurementPage_4.png" target="_blank" rel="noopener"><img src="images/xylem/all/MeasurementPage_4.png" alt="Xylem single-sensor full-screen pH view with range bar" loading="lazy"></a>
+                        <a href="images/xylem/all/MeasurementPage_5.png" target="_blank" rel="noopener"><img src="images/xylem/all/MeasurementPage_5.png" alt="Xylem measurement mode selection dialog" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Sensor Calibration</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/CalibrationPage_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/CalibrationPage_2.png" alt="Xylem pH calibration setup" loading="lazy"></a>
+                        <a href="images/xylem/all/CalibrationPage_3.png" target="_blank" rel="noopener"><img src="images/xylem/all/CalibrationPage_3.png" alt="Xylem calibration running" loading="lazy"></a>
+                        <a href="images/xylem/all/CalibrationPage_4.png" target="_blank" rel="noopener"><img src="images/xylem/all/CalibrationPage_4.png" alt="Xylem calibration finished with buffer readings" loading="lazy"></a>
+                        <a href="images/xylem/all/CalibrationSettings_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/CalibrationSettings_1.png" alt="Xylem calibration settings" loading="lazy"></a>
+                        <a href="images/xylem/all/CalibrationSettings_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/CalibrationSettings_2.png" alt="Xylem calibration buffer sets" loading="lazy"></a>
+                        <a href="images/xylem/all/LeftSlider_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/LeftSlider_1.png" alt="Xylem calibration methods panel" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Wireless Sensors</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/StatusBar_4.png" target="_blank" rel="noopener"><img src="images/xylem/all/StatusBar_4.png" alt="Xylem available wireless sensors" loading="lazy"></a>
+                        <a href="images/xylem/all/StatusBar_5.png" target="_blank" rel="noopener"><img src="images/xylem/all/StatusBar_5.png" alt="Xylem wireless sensors connected" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">History &amp; Results</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/RightSlider_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/RightSlider_2.png" alt="Xylem measurement history table" loading="lazy"></a>
+                        <a href="images/xylem/all/RightSlider_3.png" target="_blank" rel="noopener"><img src="images/xylem/all/RightSlider_3.png" alt="Xylem history time-interval filter" loading="lazy"></a>
+                        <a href="images/xylem/all/RightSlider_4.png" target="_blank" rel="noopener"><img src="images/xylem/all/RightSlider_4.png" alt="Xylem measurement result detail" loading="lazy"></a>
+                        <a href="images/xylem/all/StatusBar_3.png" target="_blank" rel="noopener"><img src="images/xylem/all/StatusBar_3.png" alt="Xylem result detail — sensor, mode, value, temperature" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Device Settings &amp; Audit</div>
+                    <div class="shot-grid">
+                        <a href="images/xylem/all/TopSlider_DeviceSettings_AuditTrail_1.png" target="_blank" rel="noopener"><img src="images/xylem/all/TopSlider_DeviceSettings_AuditTrail_1.png" alt="Xylem audit trail log" loading="lazy"></a>
+                        <a href="images/xylem/all/TopSlider_DeviceSettings_Language.png" target="_blank" rel="noopener"><img src="images/xylem/all/TopSlider_DeviceSettings_Language.png" alt="Xylem language settings" loading="lazy"></a>
+                        <a href="images/xylem/all/TopSlider_DeviceSettings_UserManagement_2.png" target="_blank" rel="noopener"><img src="images/xylem/all/TopSlider_DeviceSettings_UserManagement_2.png" alt="Xylem user management — new user and roles" loading="lazy"></a>
+                    </div>
+                </div>
+
+            </div>
+        </details>
     </article>
 
 
@@ -588,18 +782,14 @@ footer {
             <p class="project-role">Qt/Python Developer · Desktop Application · Computer Vision UI</p>
         </div>
 
-        <div class="project-screenshot">
-            <img src="images/relimetrics/inspection.png" alt="Relimetrics AI-assisted inspection interface" onerror="this.style.display='none'">
-            <div class="placeholder">
-                <span>Screenshot placeholder</span>
-                Relimetrics inspection UI
-            </div>
-        </div>
-
         <p>
-            Built Qt Widgets and PyQt desktop applications for AI-assisted visual
-            inspection on the factory floor, with operator-facing workflows for
-            calibrating models, reviewing defects, and managing inspection sessions.
+            Built the Qt Widgets and PyQt desktop client for ReliVision — Relimetrics'
+            commercial AI-inspection platform, a licensed product running in production
+            on the factory floor. ReliVision lets domain experts with no coding background
+            build and run end-to-end inspection AI on their own, so my work centred on the
+            operator-facing workflows that make that possible: annotation, model
+            calibration and training, visual pipeline building, defect review, and session
+            management.
         </p>
 
         <p>
@@ -608,50 +798,226 @@ footer {
             interfaces that production operators could actually use under time pressure.
         </p>
 
+        <p>
+            Built the client–server layer that moved image sets and model artifacts
+            between production lines and the customer's on-premise backend over HTTP and
+            SFTP — keeping inspection data on their own hardware rather than the cloud —
+            backed by a local SQLite cache so operators could keep working offline when
+            the network dropped. Wrote Python tooling around it to automate model-training
+            runs and dataset handling.
+        </p>
+
         <div class="project-stack">
             <span class="stack-pill">Qt 5</span>
             <span class="stack-pill">Qt Widgets</span>
+            <span class="stack-pill">C++</span>
             <span class="stack-pill">PyQt</span>
             <span class="stack-pill">Python</span>
-            <span class="stack-pill">C++</span>
+            <span class="stack-pill">SQLite</span>
+            <span class="stack-pill">HTTP/REST</span>
+            <span class="stack-pill">SFTP</span>
+            <span class="stack-pill">CI/CD</span>
             <span class="stack-pill">Windows</span>
             <span class="stack-pill">Computer Vision</span>
         </div>
+
+        <details class="screenshot-archive">
+            <summary>
+                <span>All 36 screenshots — full walkthrough</span>
+                <span class="toggle-caret">▼</span>
+            </summary>
+            <div class="shot-gallery">
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Login &amp; Onboarding</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/LoginPage_1.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/LoginPage_1.jpg" alt="Relimetrics login — mode selection" loading="lazy"></a>
+                        <a href="images/relimetrics/all/LoginPage_2.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/LoginPage_2.jpg" alt="Relimetrics login — credentials" loading="lazy"></a>
+                        <a href="images/relimetrics/all/LoginPage_3.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/LoginPage_3.jpg" alt="Relimetrics login — signing in" loading="lazy"></a>
+                        <a href="images/relimetrics/all/LoginPage_4.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/LoginPage_4.jpg" alt="Relimetrics login — license key entry" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Sessions</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/SessionPage_1.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/SessionPage_1.png" alt="Relimetrics sessions list" loading="lazy"></a>
+                        <a href="images/relimetrics/all/SessionPage_2.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/SessionPage_2.png" alt="Relimetrics import session dialog" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Gallery &amp; Datasets</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/GalleryPage_1.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_1.png" alt="Relimetrics gallery 1" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_2.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_2.png" alt="Relimetrics gallery 2" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_3.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_3.png" alt="Relimetrics gallery 3" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_4.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_4.png" alt="Relimetrics gallery 4" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_5.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_5.png" alt="Relimetrics gallery 5" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_6.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_6.png" alt="Relimetrics gallery 6" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_7.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_7.png" alt="Relimetrics gallery 7" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_8.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_8.png" alt="Relimetrics gallery 8" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_9.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_9.png" alt="Relimetrics gallery 9" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_10.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_10.png" alt="Relimetrics gallery 10" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_11.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_11.png" alt="Relimetrics gallery 11" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_12.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_12.png" alt="Relimetrics gallery 12" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_13.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_13.png" alt="Relimetrics gallery 13" loading="lazy"></a>
+                        <a href="images/relimetrics/all/GalleryPage_14.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/GalleryPage_14.png" alt="Relimetrics gallery 14" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Annotation — ROI Labelling</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/AnnotatePage_1.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_1.jpg" alt="Relimetrics annotation 1" loading="lazy"></a>
+                        <a href="images/relimetrics/all/AnnotatePage_2.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_2.jpg" alt="Relimetrics annotation 2" loading="lazy"></a>
+                        <a href="images/relimetrics/all/AnnotatePage_3.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_3.jpg" alt="Relimetrics annotation 3" loading="lazy"></a>
+                        <a href="images/relimetrics/all/AnnotatePage_4.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_4.jpg" alt="Relimetrics annotation 4" loading="lazy"></a>
+                        <a href="images/relimetrics/all/AnnotatePage_5.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_5.jpg" alt="Relimetrics annotation 5" loading="lazy"></a>
+                        <a href="images/relimetrics/all/AnnotatePage_6.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/AnnotatePage_6.jpg" alt="Relimetrics annotation 6" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Pipeline Editor</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/PipelinePage_1.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/PipelinePage_1.png" alt="Relimetrics pipeline editor 1" loading="lazy"></a>
+                        <a href="images/relimetrics/all/PipelinePage_2.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/PipelinePage_2.png" alt="Relimetrics pipeline editor 2" loading="lazy"></a>
+                        <a href="images/relimetrics/all/PipelinePage_3.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/PipelinePage_3.png" alt="Relimetrics pipeline editor 3" loading="lazy"></a>
+                        <a href="images/relimetrics/all/PipelinePage_4.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/PipelinePage_4.jpg" alt="Relimetrics pipeline editor 4" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Training &amp; Prediction</div>
+                    <div class="shot-grid">
+                        <a href="images/relimetrics/all/TrainingScreen_1.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_1.png" alt="Relimetrics training 1" loading="lazy"></a>
+                        <a href="images/relimetrics/all/TrainingScreen_2.png" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_2.png" alt="Relimetrics training 2" loading="lazy"></a>
+                        <a href="images/relimetrics/all/TrainingScreen_3.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_3.jpg" alt="Relimetrics training 3" loading="lazy"></a>
+                        <a href="images/relimetrics/all/TrainingScreen_4.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_4.jpg" alt="Relimetrics training 4" loading="lazy"></a>
+                        <a href="images/relimetrics/all/TrainingScreen_5.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_5.jpg" alt="Relimetrics training 5" loading="lazy"></a>
+                        <a href="images/relimetrics/all/TrainingScreen_6.jpg" target="_blank" rel="noopener"><img src="images/relimetrics/all/TrainingScreen_6.jpg" alt="Relimetrics training 6" loading="lazy"></a>
+                    </div>
+                </div>
+
+            </div>
+        </details>
     </article>
 
 
-    <!-- PROJECT 3: CMS AERO -->
+    <!-- PROJECT 3: HMT700T -->
     <article class="project">
         <div class="project-header">
-            <div class="project-meta">USA · Aerospace HMI</div>
-            <h3 class="project-title">CMS AERO — Aircraft Cabin Control Panels</h3>
-            <p class="project-role">QML Engineer · Aviation HMI · D-Bus & MQTT Integration</p>
-        </div>
-
-        <div class="project-screenshot">
-            <img src="images/cms-aero/cabin-control.png" alt="CMS AERO aircraft cabin control HMI" onerror="this.style.display='none'">
-            <div class="placeholder">
-                <span>Screenshot placeholder</span>
-                Cabin control HMI mockup
-            </div>
+            <div class="project-meta">Jun 2021 — Feb 2022 · Bitzer, Denmark</div>
+            <h3 class="project-title">HMT700T User Panel — Embedded HMI for Air Handling Units</h3>
+            <p class="project-role">Frontend Software Developer · LVGL on RTOS · ARM Cortex-A7</p>
         </div>
 
         <p>
-            Built QML interfaces for aircraft cabin control panels — lighting,
-            climate, IFE, and crew workflows — designed to meet aviation reliability
-            and readability standards. Integrated with onboard systems via
-            D-Bus, MQTT, and WebSocket IPC.
+            Developed the HMT700T user panel — a 7&quot; capacitive-touch HMI for air handling
+            units, built for an embedded device powered by an ARM Cortex-A7 processor running
+            an RTOS. The interface was implemented with LVGL, a lightweight C graphics library,
+            giving operators a full overview of the installed systems: ventilation temperature,
+            ventilation steps and alarms, heat pumps and pipe status, solar panel status and
+            temperature, and more. The UI adapts to reflect whichever devices are actually
+            installed.
         </p>
 
         <p>
-            Focused on touch-target sizing, glanceable layouts, and graceful
-            degradation when subsystems were offline — the kind of attention to
-            edge cases that distinguishes safety-relevant HMI from generic Qt UIs.
+            The application centres on a main Swipe View widget holding three pages, each
+            controlling and monitoring a specific part of the system. Day-to-day work included
+            building that Swipe View and its pages, developing new controls from existing
+            designs — custom slider widgets, custom tables, and more — and wiring them to the
+            backend controllers to exchange data and register user input. Since the LVGL widgets
+            are written in C, I created C++ wrappers around them for safer, more convenient use.
+        </p>
+
+        <p>
+            Deployed and tested the application on real hardware to verify functionality and
+            reliability, debugged and fixed performance issues, and built a background service
+            that updated the application from a new version supplied over the USB port. Worked
+            in a team of 5–7 backend and frontend developers plus a project manager, using
+            Scrum and Jira for task management.
+        </p>
+
+        <div class="project-stack">
+            <span class="stack-pill">LVGL</span>
+            <span class="stack-pill">C++</span>
+            <span class="stack-pill">C</span>
+            <span class="stack-pill">RTOS</span>
+            <span class="stack-pill">ARM Cortex-A7</span>
+            <span class="stack-pill">CMake</span>
+            <span class="stack-pill">Bash</span>
+            <span class="stack-pill">MSVC 2019</span>
+            <span class="stack-pill">Scrum / Jira</span>
+        </div>
+
+        <details class="screenshot-archive">
+            <summary>
+                <span>All 9 screenshots — full walkthrough</span>
+                <span class="toggle-caret">▼</span>
+            </summary>
+            <div class="shot-gallery">
+
+                <div class="shot-group">
+                    <div class="shot-group-label">System Overview — Swipe View</div>
+                    <div class="shot-grid">
+                        <a href="images/hmt700t/all/HouseOverview_1.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/HouseOverview_1.png" alt="HMT700T house overview — ventilation off, temperatures and CO2" loading="lazy"></a>
+                        <a href="images/hmt700t/all/HouseOverview_2.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/HouseOverview_2.png" alt="HMT700T house overview — ventilation step 1 active with alarms" loading="lazy"></a>
+                        <a href="images/hmt700t/all/RoomOverview.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/RoomOverview.png" alt="HMT700T room overview — actual vs desired temperature, ventilation step, humidity, CO2" loading="lazy"></a>
+                        <a href="images/hmt700t/all/SystemDiagram.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/SystemDiagram.png" alt="HMT700T P&amp;I diagram — pipes, pumps, valves and sensor temperatures" loading="lazy"></a>
+                    </div>
+                </div>
+
+                <div class="shot-group">
+                    <div class="shot-group-label">Controls &amp; Settings</div>
+                    <div class="shot-grid">
+                        <a href="images/hmt700t/all/TemperatureSetpoint.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/TemperatureSetpoint.png" alt="HMT700T temperature setpoint — custom arc control" loading="lazy"></a>
+                        <a href="images/hmt700t/all/WeekProgram.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/WeekProgram.png" alt="HMT700T week program — per-day function schedule table" loading="lazy"></a>
+                        <a href="images/hmt700t/all/MenuSpinner.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/MenuSpinner.png" alt="HMT700T settings menu with spinner option selector" loading="lazy"></a>
+                        <a href="images/hmt700t/all/PasswordKeypad.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/PasswordKeypad.png" alt="HMT700T password keypad dialog protecting settings" loading="lazy"></a>
+                        <a href="images/hmt700t/all/AlarmsPage.png" target="_blank" rel="noopener"><img src="images/hmt700t/all/AlarmsPage.png" alt="HMT700T alarms page with active and inactive alarms and loading spinner" loading="lazy"></a>
+                    </div>
+                </div>
+
+            </div>
+        </details>
+    </article>
+
+
+    <!-- PROJECT 4: CMS AERO -->
+    <article class="project">
+        <div class="project-header">
+            <div class="project-meta">Mar 2020 — May 2021 · CMS AERO, TX USA</div>
+            <h3 class="project-title">CMS Touch &amp; Switch UI — Aircraft Cabin Control Panels</h3>
+            <p class="project-role">Frontend Software Developer · Aviation HMI · D-Bus, MQTT &amp; WebSocket</p>
+        </div>
+
+        <p>
+            Developed and maintained the GUI application for embedded cabin-control devices
+            (3.5&quot; to 7&quot; displays) installed in aircraft, giving passengers and crew control
+            over lighting, volume, video sources, window shades, seat adjustments, and more.
+            Built the interfaces in QML on the Qt Framework, with the application backend
+            written in C++ using Qt classes.
+        </p>
+
+        <p>
+            Implemented new UI controls — specialized buttons, dials, spinners, and sliders —
+            including their controller logic and backend connections for user input. Deployed
+            and tested updates on the embedded devices, troubleshooting control issues through
+            log analysis.
+        </p>
+
+        <p>
+            Developed the application's communication layer across multiple stages,
+            incorporating D-Bus IPC, a Qt MQTT client in QML and JavaScript, and a WebSocket
+            client in QML for real-time JSON message transmission.
         </p>
 
         <div class="project-stack">
             <span class="stack-pill">Qt</span>
             <span class="stack-pill">QML</span>
+            <span class="stack-pill">C++</span>
             <span class="stack-pill">D-Bus</span>
             <span class="stack-pill">MQTT</span>
             <span class="stack-pill">WebSocket</span>
@@ -659,75 +1025,6 @@ footer {
         </div>
     </article>
 
-
-    <!-- PROJECT 4: GLOBALIPTEL -->
-    <article class="project">
-        <div class="project-header">
-            <div class="project-meta">Germany · VoIP Desktop</div>
-            <h3 class="project-title">GlobalIPTel — Cross-Platform VoIP Client</h3>
-            <p class="project-role">Qt Developer · Desktop · Real-Time Audio</p>
-        </div>
-
-        <p>
-            Cross-platform Qt/QML desktop VoIP client running on Windows, macOS,
-            and Linux. Worked on UI, signalling, and call-state management for
-            a commercial product used by business customers.
-        </p>
-
-        <div class="project-stack">
-            <span class="stack-pill">Qt</span>
-            <span class="stack-pill">QML</span>
-            <span class="stack-pill">C++</span>
-            <span class="stack-pill">SIP/VoIP</span>
-            <span class="stack-pill">Windows</span>
-            <span class="stack-pill">macOS</span>
-            <span class="stack-pill">Linux</span>
-        </div>
-    </article>
-
-</section>
-
-
-<!-- ============================================================ -->
-<!-- STACK                                                        -->
-<!-- ============================================================ -->
-
-<section>
-    <div class="section-head">
-        <span class="section-number">03</span>
-        <h2 class="section-title">Technical Stack</h2>
-    </div>
-
-    <div class="stack-table">
-        <div class="stack-row">
-            <div class="stack-label">Core</div>
-            <div class="stack-value">Qt 5 · Qt 6 · QML · Quick Controls · Widgets · C++17 / C++20</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Architecture</div>
-            <div class="stack-value">Multi-process design · gRPC · Protobuf · D-Bus · MQTT · WebSocket</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Embedded</div>
-            <div class="stack-value">Yocto Linux · ARM Cortex-A · Raspberry Pi · Custom hardware integration</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Data</div>
-            <div class="stack-value">PostgreSQL · QxOrm · SQLite</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Platforms</div>
-            <div class="stack-value">Linux (Ubuntu / Debian / Yocto) · Windows · macOS</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Tooling</div>
-            <div class="stack-value">CMake · qmake · Git · CI/CD pipelines</div>
-        </div>
-        <div class="stack-row">
-            <div class="stack-label">Languages</div>
-            <div class="stack-value">English (C1) · German (A1–A2, learning) · Macedonian (native)</div>
-        </div>
-    </div>
 </section>
 
 
@@ -744,8 +1041,7 @@ footer {
     <div class="contact-block">
         <p class="pitch">
             Currently <em>open to roles</em> — full-time, contract, or part-time.
-            Remote across the EU and the Balkans; available for relocation
-            within the region.
+            Remote across the EU and the Balkans; available for relocation.
         </p>
 
         <ul class="contact-list">
@@ -759,7 +1055,7 @@ footer {
 
 <footer>
     <span>© Petar Badaloski</span>
-    <span>Last updated · December 2025</span>
+    <span>Last updated · June 2026</span>
 </footer>
 
 </div>
